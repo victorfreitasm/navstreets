@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NAV STREETS | Compre aqui!</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <!-- Modal PIX + WhatsApp -->
+         <div id="checkoutModal" class="modal">
+            <div class="modal-content">
+                <span id="closeModal">&times;</span>
+                <h2>Pagamento via PIX</h2>
+                <img id="pixQr" src="" alt="QR Code PIX" style="width:200px; height:200px;">
+                <p>Após pagar, envie o comprovante pelo WhatsApp:</p>
+                <a id="whatsappLink" target="_blank">Enviar pelo WhatsApp</a>
+            </div>
+        </div>
+        
+        <!-- Modal Login com Google -->
+        <div id="loginModal" class="modal">
+            <div class="modal-content">
+                <span id="closeLoginModal">&times;</span>
+                <h2>Entrar na sua conta</h2>
+                <div class="login-options">
+                    <button id="googleLoginBtn" class="google-login-btn">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google Logo">
+                        Entrar com Google
+                    </button>
+                </div>
+                <div id="userInfo" class="user-info" style="display: none;">
+                    <img id="userPhoto" src="" alt="Foto do usuário">
+                    <p id="userName">Nome do usuário</p>
+                    <p id="userEmail">Email do usuário</p>
+                    <button id="logoutBtn" class="btn">Sair</button>
+                </div>
+            </div>
+        </div>
+
+        <nav class="navbar">
+            <div class="logo">
+                <img src="navmono.png" alt="NAV STREETS Logo" class="nav-logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="#" class="active">Inicio</a></li>
+                <li><a href="#products">Disponíveis</a></li>
+                <li><a href="#about">Sobre</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+            <div class="nav-icons">
+                <a href="#" class="icon"><i class="fas fa-search"></i></a>
+                <a href="#" class="icon" id="userIcon"><i class="fas fa-user"></i></a>
+                <a href="#" class="icon cart-icon"><i class="fas fa-shopping-bag"></i><span class="cart-count">0</span></a>
+            </div>
+            
+            <!-- Carrinho de Compras -->
+            <div class="cart-sidebar">
+                <div class="cart-header">
+                    <h3>Seu Carrinho</h3>
+                    <button class="close-cart"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="cart-items">
+                    <!-- Os itens do carrinho serão adicionados aqui via JavaScript -->
+                </div>
+                <div class="cart-footer">
+                    <div class="cart-total">
+                        <span>Total:</span>
+                        <span class="total-price">R$ 0,00</span>
+                    </div>
+                    <button id="checkoutBtn" class="btn checkout-btn">Finalizar Compra</button>
+                    <button class="btn clear-cart-btn">Limpar Carrinho</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Overlay para o carrinho -->
+            <div class="cart-overlay"></div>
+            <div class="hamburger">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>NOVIDADES</h1>
+            <p>dê uma olhadinha nas novidades da nossa loja!</p>
+            <a href="#products" class="btn">Veja aqui!</a>
+        </div>
+    </section>
+
+    <section id="featured" class="featured">
+        <div class="section-title">
+            <h2>Se liga!</h2>
+        </div>
+        <div class="category-container">
+            <div class="category">
+                <img src="https://via.placeholder.com/300x400/8a2be2/ffffff" alt="Women's Collection">
+                <h3>Oversizeds</h3>
+                <a href="#" class="category-link">Shop Now</a>
+            </div>
+            <div class="category">
+                <img src="https://via.placeholder.com/300x400/9370db/ffffff" alt="Men's Collection">
+                <h3>Cristãs</h3>
+                <a href="#" class="category-link">Shop Now</a>
+            </div>
+            <div class="category">
+                <img src="https://via.placeholder.com/300x400/ba55d3/ffffff" alt="Accessories">
+                <h3>Promoções</h3>
+                <a href="#" class="category-link">Shop Now</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="products" class="products">
+        <div class="section-title">
+            <h2>Outros Produtos</h2>
+        </div>
+        <div class="filter-container">
+            <button class="filter-btn active" data-filter="all">Tudo</button>
+            <button class="filter-btn" data-filter="new">Novidades</button>
+            <button class="filter-btn" data-filter="bestseller">Promoções</button>
+            <button class="filter-btn" data-filter="sale">Plus-Size</button>
+        </div>
+        <div class="product-container">
+            <div class="product" data-category="new">
+                <div class="product-img">
+                    <img src="https://via.placeholder.com/300x400/8a2be2/ffffff" alt="Purple Hoodie">
+                    <div class="product-icons">
+                        <a href="#"><i class="fas fa-heart"></i></a>
+                        <a href="#"><i class="fas fa-shopping-cart"></i></a>
+                        <a href="#"><i class="fas fa-eye"></i></a>
+                    </div>
+                    <span class="product-tag">Tamanho M</span>
+                </div>
+                <div class="product-info">
+                    <h3>Camisa Branca Oversized "Anjo"</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="price">R$65,00</p>
+                </div>
+            </div>
+            <div class="product" data-category="bestseller">
+                <div class="product-img">
+                    <img src="camisa invisiblwe.png" alt="Purple T-Shirt">
+                    <div class="product-icons">
+                        <a href="#"><i class="fas fa-heart"></i></a>
+                        <a href="#"><i class="fas fa-shopping-cart"></i></a>
+                        <a href="#"><i class="fas fa-eye"></i></a>
+                    </div>
+                    <span class="product-tag">Tamanho G</span>
+                </div>
+                <div class="product-info">
+                    <h3>Camisa Off-White Oversized "Invisible" </h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="price">R$65,00</p>
+                </div>
+            </div>
+            <div class="product" data-category="sale">
+                <div class="product-img">
+                    <img src="camisa cresta.png" alt="Purple Dress">
+                    <div class="product-icons">
+                        <a href="#"><i class="fas fa-heart"></i></a>
+                        <a href="#"><i class="fas fa-shopping-cart"></i></a>
+                        <a href="#"><i class="fas fa-eye"></i></a>
+                    </div>
+                    <span class="product-tag">Tamanho G</span>
+                </div>
+                <div class="product-info">
+                    <h3>Camisa Bege Oversized "All For His Glory"</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <p class="price"><span class="old-price">R$65,00</span> R$45,00</p>
+                </div>
+            </div>
+            <div class="product" data-category="new">
+                <div class="product-img">
+                    <img src="https://via.placeholder.com/300x400/9932cc/ffffff" alt="Purple Jacket">
+                    <div class="product-icons">
+                        <a href="#"><i class="fas fa-heart"></i></a>
+                        <a href="#"><i class="fas fa-shopping-cart"></i></a>
+                        <a href="#"><i class="fas fa-eye"></i></a>
+                    </div>
+                    <span class="product-tag">Tamanho G</span>
+                </div>
+                <div class="product-info">
+                    <h3>Camisa Basica Marrom Oversized</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <p class="price">R$50,00</p>
+                </div>
+            </div>
+        </div>
+        <div class="load-more">
+            <button class="btn">Mais</button>
+        </div>
+    </section>
+
+    <section class="banner">
+        <div class="banner-content">
+            <h2>Promoção</h2>
+            <p>Compre duas camisas oversized por R$95,00</p>
+            <a href="#" class="btn">Shop Now</a>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="section-title">
+            <h2>About Purple Threads</h2>
+        </div>
+        <div class="about-container">
+            <div class="about-img">
+                <img src="https://via.placeholder.com/600x400/8a2be2/ffffff" alt="About Us">
+            </div>
+            <div class="about-content">
+                <h3>Our Story</h3>
+                <p></p>
+                <p>We believe in sustainable fashion and ethical manufacturing practices. All our garments are made with love and attention to detail, ensuring you receive only the best.</p>
+                <a href="#" class="btn">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="newsletter">
+        <div class="newsletter-content">
+            <h2>Subscribe to Our Newsletter</h2>
+            <p>Get the latest updates on new products and special promotions</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Your Email Address" required>
+                <button type="submit" class="btn">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="section-title">
+            <h2>Contact Us</h2>
+        </div>
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>123 Fashion Street, Style City</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-phone"></i>
+                    <p>+1 (555) 123-4567</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <p>info@purplethreads.com</p>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                </div>
+            </div>
+            <form class="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <input type="text" placeholder="Subject">
+                <textarea placeholder="Your Message" required></textarea>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Purple Threads</h3>
+                <p>Your destination for stylish purple clothing and accessories.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4>Shop</h4>
+                <ul>
+                    <li><a href="#">Women</a></li>
+                    <li><a href="#">Men</a></li>
+                    <li><a href="#">Accessories</a></li>
+                    <li><a href="#">Sale</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Help</h4>
+                <ul>
+                    <li><a href="#">Customer Service</a></li>
+                    <li><a href="#">My Account</a></li>
+                    <li><a href="#">Store Locator</a></li>
+                    <li><a href="#">Size Guide</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Policies</h4>
+                <ul>
+                    <li><a href="#">Shipping & Returns</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Purple Threads. All Rights Reserved.</p>
+            <div class="payment-icons">
+                <i class="fab fa-cc-visa"></i>
+                <i class="fab fa-cc-mastercard"></i>
+                <i class="fab fa-cc-amex"></i>
+                <i class="fab fa-cc-paypal"></i>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="script.js"></script>
+</body>
+</html>
