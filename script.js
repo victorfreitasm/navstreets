@@ -141,7 +141,7 @@ const whatsappLink = document.getElementById("whatsappLink");
 
 // ⚡️ QR code do PIX e WhatsApp configurados:
 const pixQrCode = "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=00020126580014BR.GOV.BCB.PIX0136f28e4e58-36cf-4641-9b15-3d3a5ca7a2ba5204000053039865802BR5925Victor%20Gabriel%20de%20Freitas%20Morais6009SAO%20PAULO62070503***6304E2CA";
-const whatsappNumber = "5584999332233"; // número no formato 55 + DDD + número
+const whatsappNumber = "5584996058933"; // número no formato 55 + DDD + número
 
 // Abrir o modal quando clicar em Finalizar Compra
 checkoutBtn.addEventListener("click", () => {
