@@ -11,7 +11,7 @@
 <body>
     <header>
         <!-- Modal PIX + WhatsApp -->
-         <div id="checkoutModal" class="modal">
+        <div id="checkoutModal" class="modal">
             <div class="modal-content">
                 <span id="closeModal">&times;</span>
                 <h2>Pagamento via PIX</h2>
@@ -21,22 +21,15 @@
             </div>
         </div>
         
-        <!-- Modal Login com Google -->
-        <div id="loginModal" class="modal">
+        <!-- Modal Login Simples -->
+        <div id="loginModal" class="modal" style="display:none;">
             <div class="modal-content">
-                <span id="closeLoginModal">&times;</span>
+                <span id="closeLoginModal" class="close">&times;</span>
                 <h2>Entrar na sua conta</h2>
-                <div class="login-options">
-                    <button id="googleLoginBtn" class="google-login-btn">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google Logo">
-                        Entrar com Google
-                    </button>
-                </div>
-                <div id="userInfo" class="user-info" style="display: none;">
-                    <img id="userPhoto" src="" alt="Foto do usuário">
-                    <p id="userName">Nome do usuário</p>
-                    <p id="userEmail">Email do usuário</p>
-                    <button id="logoutBtn" class="btn">Sair</button>
+                <div class="login-form">
+                    <input type="text" id="loginUsername" placeholder="Usuário">
+                    <input type="password" id="loginPassword" placeholder="Senha">
+                    <button id="loginBtn">Entrar</button>
                 </div>
             </div>
         </div>
@@ -73,7 +66,6 @@
                     </div>
                     <button id="checkoutBtn" class="btn checkout-btn">Finalizar Compra</button>
                     <button class="btn clear-cart-btn">Limpar Carrinho</button>
-                    </div>
                 </div>
             </div>
             
@@ -87,37 +79,16 @@
         </nav>
     </header>
 
+    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
             <h1>NOVIDADES</h1>
-            <p>dê uma olhadinha nas novidades da nossa loja!</p>
+            <p>Dê uma olhadinha nas novidades da nossa loja!</p>
             <a href="#products" class="btn">Veja aqui!</a>
         </div>
     </section>
 
-    <section id="featured" class="featured">
-        <div class="section-title">
-            <h2>Se liga!</h2>
-        </div>
-        <div class="category-container">
-            <div class="category">
-                <img src="https://via.placeholder.com/300x400/8a2be2/ffffff" alt="Women's Collection">
-                <h3>Oversizeds</h3>
-                <a href="#" class="category-link">Veja:</a>
-            </div>
-            <div class="category">
-                <img src="https://via.placeholder.com/300x400/9370db/ffffff" alt="Men's Collection">
-                <h3>Streetwear</h3>
-                <a href="#" class="category-link">Veja:</a>
-            </div>
-            <div class="category">
-                <img src="https://via.placeholder.com/300x400/ba55d3/ffffff" alt="Accessories">
-                <h3>Promoções</h3>
-                <a href="#" class="category-link">Veja:</a>
-            </div>
-        </div>
-    </section>
-
+    <!-- Produtos -->
     <section id="products" class="products">
         <div class="section-title">
             <h2>Outros Produtos</h2>
@@ -128,114 +99,112 @@
             <button class="filter-btn" data-filter="bestseller">Promoções</button>
             <button class="filter-btn" data-filter="sale">Plus-Size</button>
         </div>
- <div class="product-container">
-    <!-- Produto 1 -->
-    <div class="product" data-category="new">
-        <div class="product-img">
-            <img src="https://via.placeholder.com/300x400/8a2be2/ffffff" alt="Purple Hoodie">
-            <div class="product-icons">
-                <a href="#"><i class="fas fa-heart"></i></a>
-                <a href="#"><i class="fas fa-shopping-cart"></i></a>
-                <a href="#"><i class="fas fa-eye"></i></a>
-            </div>
-            <span class="product-tag">Tamanho M</span>
-        </div>
-        <div class="product-info">
-            <h3>Camisa Street SIDECROSS PRETA</h3>
-            <p class="price"><span class="old-price">R$74,90</span> R$64,90</p>
-        </div>
-    </div>
+        <div class="product-container">
 
-    <!-- Produto 2 -->
-    <div class="product" data-category="bestseller">
-        <div class="product-img">
-            <img src="camisa invisiblwe.png" alt="Purple T-Shirt">
-            <div class="product-icons">
-                <a href="#"><i class="fas fa-heart"></i></a>
-                <a href="#"><i class="fas fa-shopping-cart"></i></a>
-                <a href="#"><i class="fas fa-eye"></i></a>
-            </div>
-            <span class="product-tag">Tamanho G</span>
-        </div>
-        <div class="product-info">
-            <h3>Camisa Over ANTIDOTE OFF WHITE</h3>
-            <p class="price"><span class="old-price">R$74,90</span> R$64,90</p>
-        </div>
-    </div>
-
-    <!-- Produto 3 -->
-    <div class="product" data-category="sale">
-        <div class="product-img">
-            <img src="camisa cresta.png" alt="Purple Dress">
-            <div class="product-icons">
-                <a href="#"><i class="fas fa-heart"></i></a>
-                <a href="#"><i class="fas fa-shopping-cart"></i></a>
-                <a href="#"><i class="fas fa-eye"></i></a>
-            </div>
-            <span class="product-tag">Tamanho G</span>
-        </div>
-        <div class="product-info">
-            <h3>Camisa Street STARSHINE BEGE</h3>
-            <p class="price"><span class="old-price">R$74,90</span> R$64,90</p>
-        </div>
-    </div>
-
-    <!-- Produto 4 -->
-    <div class="product" data-category="new">
-        <div class="product-img">
-            <img src="https://via.placeholder.com/300x400/ff6347/ffffff" alt="Red Hoodie">
-            <div class="product-icons">
-                <a href="#"><i class="fas fa-heart"></i></a>
-                <a href="#"><i class="fas fa-shopping-cart"></i></a>
-                <a href="#"><i class="fas fa-eye"></i></a>
-            </div>
-            <span class="product-tag">Tamanho G</span>
-        </div>
-        <div class="product-info">
-            <h3>Camisa Over TEXTURIZADA OFF-WHITE</h3>
-            <p class="price"><span class="old-price">R$94,90</span> R$69,90</p>
-        </div>
-    </div>
-
-    <!-- Produto 5 -->
-    <div class="product" data-category="bestseller">
-        <div class="product-img">
-            <img src="https://via.placeholder.com/300x400/32cd32/ffffff" alt="Green Hoodie">
-            <div class="product-icons">
-                <a href="#"><i class="fas fa-heart"></i></a>
-                <a href="#"><i class="fas fa-shopping-cart"></i></a>
-                <a href="#"><i class="fas fa-eye"></i></a>
-            </div>
-            <span class="product-tag">Tamanho M</span>
-        </div>
-        <div class="product-info">
-            <h3>Camisa Over TORONTO PRETA</h3>
-            <p class="price"><span class="old-price">R$74,90</span> R$64,90</p>
-        </div>
-    </div>
-
-    <!-- Produto 6 -->
-    <div class="product" data-category="sale">
-        <div class="product-img">
-            <img src="https://via.placeholder.com/300x400/1e90ff/ffffff" alt="Blue Hoodie">
-            <div class="product-icons">
-                <a href="#"><i class="fas fa-heart"></i></a>
-                <a href="#"><i class="fas fa-shopping-cart"></i></a>
-                <a href="#"><i class="fas fa-eye"></i></a>
-            </div>
-            <span class="product-tag">Tamanho G</span>
-        </div>
-        <div class="product-info">
-            <h3>Camisa 100% JESUS NEY BRANCA</h3>
-            <p class="price"><span class="old-price">R$64,90</span> R$54,90</p>
-        </div>
-    </div>
-</div>
-
-
+            <!-- Produto 1 -->
+            <div class="product" data-category="new">
+                <div class="product-img">
+                    <img src="imagens/sidecross.png" alt="sidecross">
+                    <div class="product-icons">
+                        <a href="#"><i class="fas fa-heart"></i></a>
+                        <a href="#"><i class="fas fa-shopping-cart"></i></a>
+                        <a href="#"><i class="fas fa-eye"></i></a>
+                    </div>
+                    <span class="product-tag">Tamanho M</span>
+                </div>
+                <div class="product-info">
+                    <h3>Camisa Street SIDECROSS PRETA</h3>
+                    <p class="price">R$64,90</p>
                 </div>
             </div>
+
+            <!-- Produto 2 -->
+            <div class="product" data-category="bestseller">
+                <div class="product-img">
+                    <img src="imagens/travis.png" alt="antidote">
+                    <div class="product-icons">
+                        <a href="#"><i class="fas fa-heart"></i></a>
+                        <a href="#"><i class="fas fa-shopping-cart"></i></a>
+                        <a href="#"><i class="fas fa-eye"></i></a>
+                    </div>
+                    <span class="product-tag">Tamanho G</span>
+                </div>
+                <div class="product-info">
+                    <h3>Camisa Over ANTIDOTE OFF WHITE</h3>
+                    <p class="price">R$64,90</p>
+                </div>
+            </div>
+
+            <!-- Produto 3 -->
+            <div class="product" data-category="sale">
+                <div class="product-img">
+                    <img src="imagens/starshine.png" alt="starshine">
+                    <div class="product-icons">
+                        <a href="#"><i class="fas fa-heart"></i></a>
+                        <a href="#"><i class="fas fa-shopping-cart"></i></a>
+                        <a href="#"><i class="fas fa-eye"></i></a>
+                    </div>
+                    <span class="product-tag">Tamanho G</span>
+                </div>
+                <div class="product-info">
+                    <h3>Camisa Street STARSHINE BEGE</h3>
+                    <p class="price">R$64,90</p>
+                </div>
+            </div>
+
+            <!-- Produto 4 -->
+            <div class="product" data-category="new">
+                <div class="product-img">
+                    <img src="imagens/texturizada.png" alt="texturizada">
+                    <div class="product-icons">
+                        <a href="#"><i class="fas fa-heart"></i></a>
+                        <a href="#"><i class="fas fa-shopping-cart"></i></a>
+                        <a href="#"><i class="fas fa-eye"></i></a>
+                    </div>
+                    <span class="product-tag">Tamanho G</span>
+                </div>
+                <div class="product-info">
+                    <h3>Camisa Over TEXTURIZADA OFF-WHITE</h3>
+                    <p class="price">R$69,90</p>
+                </div>
+            </div>
+
+            <!-- Produto 5 -->
+            <div class="product" data-category="bestseller">
+                <div class="product-img">
+                    <img src="imagens/toronto.png" alt="toronto">
+                    <div class="product-icons">
+                        <a href="#"><i class="fas fa-heart"></i></a>
+                        <a href="#"><i class="fas fa-shopping-cart"></i></a>
+                        <a href="#"><i class="fas fa-eye"></i></a>
+                    </div>
+                    <span class="product-tag">Tamanho M</span>
+                </div>
+                <div class="product-info">
+                    <h3>Camisa Over TORONTO PRETA</h3>
+                    <p class="price">R$64,90</p>
+                </div>
+            </div>
+
+            <!-- Produto 6 -->
+            <div class="product" data-category="sale">
+                <div class="product-img">
+                    <img src="imagens/NEYMAR.png" alt="100%jesus">
+                    <div class="product-icons">
+                        <a href="#"><i class="fas fa-heart"></i></a>
+                        <a href="#"><i class="fas fa-shopping-cart"></i></a>
+                        <a href="#"><i class="fas fa-eye"></i></a>
+                    </div>
+                    <span class="product-tag">Tamanho G</span>
+                </div>
+                <div class="product-info">
+                    <h3>Camisa 100% JESUS NEY BRANCA</h3>
+                    <p class="price">R$54,90</p>
+                </div>
+            </div>  
+
         </div>
+
         <div class="load-more">
             <button class="btn">Mais</button>
         </div>
@@ -248,13 +217,6 @@
             <a href="#" class="btn">Shop Now</a>
         </div>
     </section>
-
-
-
-
-            <div class="footer-column">
-
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
     <script src="script.js"></script>
 </body>
 </html>
