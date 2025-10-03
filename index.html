@@ -15,13 +15,13 @@
             <div class="modal-content">
                 <span id="closeModal">&times;</span>
                 <h2>Pagamento via PIX</h2>
-                <img id="pixQr" src="imagens/pix.png" alt="QR Code PIX" style="width:200px; height:200px;">
+                <img id="pixQr" src="" alt="QR Code PIX" style="width:200px; height:200px;">
                 <p>Após pagar, envie o comprovante pelo WhatsApp:</p>
                 <a id="whatsappLink" target="_blank">Enviar pelo WhatsApp</a>
             </div>
         </div>
-
-        <!-- Modal Login -->
+        
+        <!-- Modal Login Simples -->
         <div id="loginModal" class="modal" style="display:none;">
             <div class="modal-content">
                 <span id="closeLoginModal" class="close">&times;</span>
@@ -47,17 +47,18 @@
             <div class="nav-icons">
                 <a href="#" class="icon"><i class="fas fa-search"></i></a>
                 <a href="#" class="icon" id="userIcon"><i class="fas fa-user"></i></a>
-                <a href="#" class="icon fav-icon"><i class="fas fa-heart"></i><span class="fav-count">0</span></a>
                 <a href="#" class="icon cart-icon"><i class="fas fa-shopping-bag"></i><span class="cart-count">0</span></a>
             </div>
-
-            <!-- Carrinho -->
+            
+            <!-- Carrinho de Compras -->
             <div class="cart-sidebar">
                 <div class="cart-header">
                     <h3>Seu Carrinho</h3>
                     <button class="close-cart"><i class="fas fa-times"></i></button>
                 </div>
-                <div class="cart-items"></div>
+                <div class="cart-items">
+                    <!-- Os itens do carrinho serão adicionados aqui via JavaScript -->
+                </div>
                 <div class="cart-footer">
                     <div class="cart-total">
                         <span>Total:</span>
@@ -67,21 +68,9 @@
                     <button class="btn clear-cart-btn">Limpar Carrinho</button>
                 </div>
             </div>
-
-            <!-- Favoritos -->
-            <div class="fav-sidebar">
-                <div class="fav-header">
-                    <h3>Favoritos</h3>
-                    <button class="close-fav"><i class="fas fa-times"></i></button>
-                </div>
-                <div class="fav-items"></div>
-            </div>
-
-            <!-- Overlays -->
+            
+            <!-- Overlay para o carrinho -->
             <div class="cart-overlay"></div>
-            <div class="fav-overlay"></div>
-
-            <!-- Menu mobile -->
             <div class="hamburger">
                 <div class="bar"></div>
                 <div class="bar"></div>
@@ -90,7 +79,7 @@
         </nav>
     </header>
 
-    <!-- Hero -->
+    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
             <h1>NOVIDADES</h1>
@@ -112,13 +101,14 @@
         </div>
         <div class="product-container">
 
-            <!-- Produto exemplo -->
+            <!-- Produto 1 -->
             <div class="product" data-category="new">
                 <div class="product-img">
                     <img src="imagens/sidecross.png" alt="sidecross">
                     <div class="product-icons">
-                        <a href="#" class="add-fav"><i class="fas fa-heart"></i></a>
-                        <a href="#" class="add-cart"><i class="fas fa-shopping-cart"></i></a>
+                        <a href="#"><i class="fas fa-heart"></i></a>
+                        <a href="#"><i class="fas fa-shopping-cart"></i></a>
+                        <a href="#"><i class="fas fa-eye"></i></a>
                     </div>
                     <span class="product-tag">Tamanho M</span>
                 </div>
@@ -128,17 +118,106 @@
                 </div>
             </div>
 
+            <!-- Produto 2 -->
+            <div class="product" data-category="bestseller">
+                <div class="product-img">
+                    <img src="imagens/travis.png" alt="antidote">
+                    <div class="product-icons">
+                        <a href="#"><i class="fas fa-heart"></i></a>
+                        <a href="#"><i class="fas fa-shopping-cart"></i></a>
+                        <a href="#"><i class="fas fa-eye"></i></a>
+                    </div>
+                    <span class="product-tag">Tamanho G</span>
+                </div>
+                <div class="product-info">
+                    <h3>Camisa Over ANTIDOTE OFF WHITE</h3>
+                    <p class="price">R$64,90</p>
+                </div>
+            </div>
+
+            <!-- Produto 3 -->
+            <div class="product" data-category="sale">
+                <div class="product-img">
+                    <img src="imagens/starshine.png" alt="starshine">
+                    <div class="product-icons">
+                        <a href="#"><i class="fas fa-heart"></i></a>
+                        <a href="#"><i class="fas fa-shopping-cart"></i></a>
+                        <a href="#"><i class="fas fa-eye"></i></a>
+                    </div>
+                    <span class="product-tag">Tamanho G</span>
+                </div>
+                <div class="product-info">
+                    <h3>Camisa Street STARSHINE BEGE</h3>
+                    <p class="price">R$64,90</p>
+                </div>
+            </div>
+
+            <!-- Produto 4 -->
+            <div class="product" data-category="new">
+                <div class="product-img">
+                    <img src="imagens/texturizada.png" alt="texturizada">
+                    <div class="product-icons">
+                        <a href="#"><i class="fas fa-heart"></i></a>
+                        <a href="#"><i class="fas fa-shopping-cart"></i></a>
+                        <a href="#"><i class="fas fa-eye"></i></a>
+                    </div>
+                    <span class="product-tag">Tamanho G</span>
+                </div>
+                <div class="product-info">
+                    <h3>Camisa Over TEXTURIZADA OFF-WHITE</h3>
+                    <p class="price">R$69,90</p>
+                </div>
+            </div>
+
+            <!-- Produto 5 -->
+            <div class="product" data-category="bestseller">
+                <div class="product-img">
+                    <img src="imagens/toronto.png" alt="toronto">
+                    <div class="product-icons">
+                        <a href="#"><i class="fas fa-heart"></i></a>
+                        <a href="#"><i class="fas fa-shopping-cart"></i></a>
+                        <a href="#"><i class="fas fa-eye"></i></a>
+                    </div>
+                    <span class="product-tag">Tamanho M</span>
+                </div>
+                <div class="product-info">
+                    <h3>Camisa Over TORONTO PRETA</h3>
+                    <p class="price">R$64,90</p>
+                </div>
+            </div>
+
+            <!-- Produto 6 -->
+            <div class="product" data-category="sale">
+                <div class="product-img">
+                    <img src="imagens/NEYMAR.png" alt="Blue Hoodie">
+                    <div class="product-icons">
+                        <a href="#"><i class="fas fa-heart"></i></a>
+                        <a href="#"><i class="fas fa-shopping-cart"></i></a>
+                        <a href="#"><i class="fas fa-eye"></i></a>
+                    </div>
+                    <span class="product-tag">Tamanho G</span>
+                </div>
+                <div class="product-info">
+                    <h3>Camisa 100% JESUS NEY BRANCA</h3>
+                    <p class="price">R$54,90</p>
+                </div>
+            </div>  
+
+        </div>
+
+        <div class="load-more">
+            <button class="btn">Mais</button>
         </div>
     </section>
 
     <section class="banner">
         <div class="banner-content">
-            <h2>PROMOS!</h2>
-            <p>Acompanhe nossos storys </p>
-            <a href="#" class="btn">ACEITAMOS PIX, CARTÃO DE CREDITO E DEBITO!</a>
+            <h2>FIQUE LIGADO!</h2>
+            <p>Fique ligado no nosso insta: @nav.streets pra poder ver nossas promos!</p>
+            <a href="#" class="btn">ACEITAMOS CARTÂO DE CREDITO, DÈBITO E PIX! </a>
+            <h6>*VERSÂO 1.1 DO SITE E ESTÀ SUJEITO A ERROS, QUALQUER DUVIDA ENTRE EM CONTATO CONOSCO!<br>Obrigado pela preferência!</h6>
         </div>
     </section>
-
     <script src="script.js"></script>
 </body>
 </html>
