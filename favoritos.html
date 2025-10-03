@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meus Favoritos | NAV STREETS</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="imagens/et.png" type="image/png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+<header>
+  <nav class="navbar">
+    <div class="logo"><a href="index.html"><img src="imagens/navmono.png" alt="NAV STREETS" class="nav-logo"></a></div>
+    <ul class="nav-links">
+      <li><a href="index.html">Início</a></li>
+      <li><a href="index.html#products">Produtos</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="contato.html">Contato</a></li>
+    </ul>
+    <div class="nav-icons">
+      <a href="favoritos.html" class="icon active"><i class="fas fa-heart"></i></a>
+      <a href="index.html" class="icon cart-icon"><i class="fas fa-shopping-cart"></i><span class="cart-count">0</span></a>
+      <a href="#" id="userIcon" class="icon"><i class="fas fa-user"></i></a>
+    </div>
+  </nav>
+</header>
+
+<main class="favorites-page">
+  <h2>Meus Favoritos</h2>
+  <div class="favorites-container">
+    <!-- Produtos favoritos aparecerão aqui via JS -->
+  </div>
+  <p class="no-favorites">Nenhum favorito adicionado ainda.</p>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
