@@ -146,7 +146,7 @@ const closeModal = document.getElementById("closeModal");
 const pixQr = document.getElementById("pixQr");
 const whatsappLink = document.getElementById("whatsappLink");
 
-const pixQrCode = "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=PIXCODEAQUI";
+const pixQrCode = "imagens/pix.png";
 const whatsappNumber = "5584996058933";
 
 checkoutBtn.addEventListener("click",()=>{
