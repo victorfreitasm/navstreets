@@ -146,7 +146,7 @@ const closeModal = document.getElementById("closeModal");
 const pixQr = document.getElementById("pixQr");
 const whatsappLink = document.getElementById("whatsappLink");
 
-const pixQrCode = "imagens/pix.png";
+const pixQrCode = "imagens/pix.PNG";
 const whatsappNumber = "5584996058933";
 
 checkoutBtn.addEventListener("click",()=>{
