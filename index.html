@@ -15,13 +15,13 @@
             <div class="modal-content">
                 <span id="closeModal">&times;</span>
                 <h2>Pagamento via PIX</h2>
-                <img id="pixQr" src="imagens/pix.png" alt="QR Code PIX" style="width:200px; height:200px;">
+                <img id="pixQr" src="" alt="QR Code PIX" style="width:200px; height:200px;">
                 <p>Após pagar, envie o comprovante pelo WhatsApp:</p>
                 <a id="whatsappLink" target="_blank">Enviar pelo WhatsApp</a>
             </div>
         </div>
-
-        <!-- Modal Login -->
+        
+        <!-- Modal Login Simples -->
         <div id="loginModal" class="modal" style="display:none;">
             <div class="modal-content">
                 <span id="closeLoginModal" class="close">&times;</span>
@@ -29,35 +29,139 @@
                 <div class="login-form">
                     <input type="text" id="loginUsername" placeholder="Usuário">
                     <input type="password" id="loginPassword" placeholder="Senha">
-                    <button id="loginBtn">Entrar</button>
+                    <button id="loginBtn" class="btn">Entrar</button>
                 </div>
             </div>
         </div>
 
-        <nav class="navbar">
+        <!-- Modal de Visualização de Produto -->
+        <div id="productViewModal" class="modal">
+            <div class="modal-content product-view-modal-content">
+                <span id="closeProductView" class="close">&times;</span>
+                <div class="product-view-container">
+                    <div class="product-view-image">
+                        <img id="viewProductImg" src="" alt="Produto">
+                        <span id="viewProductTag" class="product-tag"></span>
+                    </div>
+                    <div class="product-view-details">
+                        <h2 id="viewProductName"></h2>
+                        <p id="viewProductPrice" class="price"></p>
+                        <p class="product-description">
+                            Produto de alta qualidade com design streetwear urbano. 
+                            Perfeito para compor seu visual casual e moderno. 
+                            Material confortável e durável.
+                        </p>
+                        <div class="product-view-actions">
+                            <button class="btn" id="addToCartFromView">
+                                <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
+                            </button>
+                            <button class="btn" id="toggleFavoriteFromView">
+                                <i class="fas fa-heart"></i> Favoritar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <nav class="navbar" id="navbar">
             <div class="logo">
                 <img src="imagens/navmono.png" alt="NAV STREETS Logo" class="nav-logo">
             </div>
             <ul class="nav-links">
-                <li><a href="#" class="active">Inicio</a></li>
-                <li><a href="#products">Disponíveis</a></li>
+                <li class="nav-item">
+                    <a href="#" class="active">Inicio</a>
+                </li>
+                <li class="nav-item mega-menu-trigger">
+                    <a href="#products">Disponíveis <i class="fas fa-chevron-down"></i></a>
+                    <div class="mega-menu">
+                        <div class="mega-menu-content">
+                            <div class="mega-menu-column">
+                                <h4>Categorias</h4>
+                                <ul>
+                                    <li><a href="#products" data-filter="new">Novidades</a></li>
+                                    <li><a href="#products" data-filter="bestseller">Promoções</a></li>
+                                    <li><a href="#products" data-filter="sale">Plus-Size</a></li>
+                                    <li><a href="#products" data-filter="all">Ver Tudo</a></li>
+                                </ul>
+                            </div>
+                            <div class="mega-menu-column">
+                                <h4>Tamanhos</h4>
+                                <ul>
+                                    <li><a href="#products">Tamanho M</a></li>
+                                    <li><a href="#products">Tamanho G</a></li>
+                                    <li><a href="#products">Tamanho GG</a></li>
+                                </ul>
+                            </div>
+                            <div class="mega-menu-column">
+                                <h4>Estilos</h4>
+                                <ul>
+                                    <li><a href="#products">Street Wear</a></li>
+                                    <li><a href="#products">Oversized</a></li>
+                                    <li><a href="#products">Básicas</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
                 <li><a href="#about">Sobre</a></li>
                 <li><a href="#contact">Contato</a></li>
             </ul>
             <div class="nav-icons">
-                <a href="#" class="icon"><i class="fas fa-search"></i></a>
+                <a href="#" class="icon search-icon"><i class="fas fa-search"></i></a>
                 <a href="#" class="icon" id="userIcon"><i class="fas fa-user"></i></a>
-                <a href="#" class="icon fav-icon"><i class="fas fa-heart"></i><span class="fav-count">0</span></a>
-                <a href="#" class="icon cart-icon"><i class="fas fa-shopping-bag"></i><span class="cart-count">0</span></a>
+                <a href="#" class="icon favorites-icon" id="favoritesIcon">
+                    <i class="fas fa-heart"></i>
+                    <span class="favorites-count">0</span>
+                </a>
+                <a href="#" class="icon cart-icon" id="cartIcon">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                    <!-- Cart Preview -->
+                    <div class="cart-preview" id="cartPreview">
+                        <div class="cart-preview-items"></div>
+                        <div class="cart-preview-footer">
+                            <div class="cart-preview-total">
+                                <span>Total:</span>
+                                <span class="preview-total-price">R$ 0,00</span>
+                            </div>
+                            <button class="btn btn-sm view-cart-btn">Ver Carrinho</button>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Sidebar Favoritos -->
+            <div class="favorites-sidebar">
+                <div class="favorites-header">
+                    <h3>Meus Favoritos</h3>
+                    <button class="close-favorites"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="favorites-items">
+                    <div class="empty-favorites">
+                        <i class="fas fa-heart"></i>
+                        <p>Nenhum favorito ainda</p>
+                        <a href="#products" class="btn btn-sm">Ver Produtos</a>
+                    </div>
+                </div>
+                <div class="favorites-footer">
+                    <button class="btn clear-favorites-btn">Limpar Favoritos</button>
+                </div>
             </div>
 
-            <!-- Carrinho -->
+            <!-- Carrinho de Compras -->
             <div class="cart-sidebar">
                 <div class="cart-header">
                     <h3>Seu Carrinho</h3>
                     <button class="close-cart"><i class="fas fa-times"></i></button>
                 </div>
-                <div class="cart-items"></div>
+                <div class="cart-items">
+                    <div class="empty-cart">
+                        <i class="fas fa-shopping-bag"></i>
+                        <p>Seu carrinho está vazio</p>
+                        <a href="#products" class="btn btn-sm">Continuar Comprando</a>
+                    </div>
+                </div>
                 <div class="cart-footer">
                     <div class="cart-total">
                         <span>Total:</span>
@@ -67,21 +171,9 @@
                     <button class="btn clear-cart-btn">Limpar Carrinho</button>
                 </div>
             </div>
-
-            <!-- Favoritos -->
-            <div class="fav-sidebar">
-                <div class="fav-header">
-                    <h3>Favoritos</h3>
-                    <button class="close-fav"><i class="fas fa-times"></i></button>
-                </div>
-                <div class="fav-items"></div>
-            </div>
-
-            <!-- Overlays -->
+            
+            <!-- Overlay para o carrinho e favoritos -->
             <div class="cart-overlay"></div>
-            <div class="fav-overlay"></div>
-
-            <!-- Menu mobile -->
             <div class="hamburger">
                 <div class="bar"></div>
                 <div class="bar"></div>
@@ -90,21 +182,22 @@
         </nav>
     </header>
 
-    <!-- Hero -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>NOVIDADES</h1>
-            <p>Dê uma olhadinha nas novidades da nossa loja!</p>
-            <a href="#products" class="btn">Veja aqui!</a>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-bg-layer"></div>
+        <div class="hero-content" data-scroll-reveal>
+            <h1 class="hero-title">NOVIDADES</h1>
+            <p class="hero-subtitle">Dê uma olhadinha nas novidades da nossa loja!</p>
+            <a href="#products" class="btn btn-hero">Veja aqui!</a>
         </div>
     </section>
 
     <!-- Produtos -->
     <section id="products" class="products">
-        <div class="section-title">
+        <div class="section-title" data-scroll-reveal>
             <h2>Outros Produtos</h2>
         </div>
-        <div class="filter-container">
+        <div class="filter-container" data-scroll-reveal>
             <button class="filter-btn active" data-filter="all">Tudo</button>
             <button class="filter-btn" data-filter="new">Novidades</button>
             <button class="filter-btn" data-filter="bestseller">Promoções</button>
@@ -112,15 +205,16 @@
         </div>
         <div class="product-container">
 
-            <!-- Produto exemplo -->
-            <div class="product" data-category="new">
+            <!-- Produto 1 -->
+            <div class="product" data-category="new" data-scroll-reveal data-name="Camisa Street SIDECROSS PRETA" data-price="64.90" data-tag="Tamanho M">
                 <div class="product-img">
                     <img src="imagens/sidecross.png" alt="sidecross">
                     <div class="product-icons">
-                        <a href="#" class="add-fav"><i class="fas fa-heart"></i></a>
-                        <a href="#" class="add-cart"><i class="fas fa-shopping-cart"></i></a>
+                        <a href="#" class="product-icon-btn wishlist-btn"><i class="fas fa-heart"></i></a>
+                        <a href="#" class="product-icon-btn add-to-cart-btn"><i class="fas fa-shopping-cart"></i></a>
+                        <a href="#" class="product-icon-btn quick-view-btn"><i class="fas fa-eye"></i></a>
                     </div>
-                    <span class="product-tag">Tamanho M</span>
+                    <span class="product-tag new-tag">Tamanho M</span>
                 </div>
                 <div class="product-info">
                     <h3>Camisa Street SIDECROSS PRETA</h3>
@@ -128,16 +222,111 @@
                 </div>
             </div>
 
+            <!-- Produto 2 -->
+            <div class="product" data-category="bestseller" data-scroll-reveal data-name="Camisa Over ANTIDOTE OFF WHITE" data-price="64.90" data-tag="Tamanho G">
+                <div class="product-img">
+                    <img src="imagens/travis.png" alt="antidote">
+                    <div class="product-icons">
+                        <a href="#" class="product-icon-btn wishlist-btn"><i class="fas fa-heart"></i></a>
+                        <a href="#" class="product-icon-btn add-to-cart-btn"><i class="fas fa-shopping-cart"></i></a>
+                        <a href="#" class="product-icon-btn quick-view-btn"><i class="fas fa-eye"></i></a>
+                    </div>
+                    <span class="product-tag sale-tag">Tamanho G</span>
+                </div>
+                <div class="product-info">
+                    <h3>Camisa Over ANTIDOTE OFF WHITE</h3>
+                    <p class="price">R$64,90</p>
+                </div>
+            </div>
+
+            <!-- Produto 3 -->
+            <div class="product" data-category="sale" data-scroll-reveal data-name="Camisa Street STARSHINE BEGE" data-price="64.90" data-tag="Tamanho G">
+                <div class="product-img">
+                    <img src="imagens/starshine.png" alt="starshine">
+                    <div class="product-icons">
+                        <a href="#" class="product-icon-btn wishlist-btn"><i class="fas fa-heart"></i></a>
+                        <a href="#" class="product-icon-btn add-to-cart-btn"><i class="fas fa-shopping-cart"></i></a>
+                        <a href="#" class="product-icon-btn quick-view-btn"><i class="fas fa-eye"></i></a>
+                    </div>
+                    <span class="product-tag">Tamanho G</span>
+                </div>
+                <div class="product-info">
+                    <h3>Camisa Street STARSHINE BEGE</h3>
+                    <p class="price">R$64,90</p>
+                </div>
+            </div>
+
+            <!-- Produto 4 -->
+            <div class="product" data-category="new" data-scroll-reveal data-name="Camisa Over TEXTURIZADA OFF-WHITE" data-price="69.90" data-tag="Tamanho G">
+                <div class="product-img">
+                    <img src="imagens/texturizada.png" alt="texturizada">
+                    <div class="product-icons">
+                        <a href="#" class="product-icon-btn wishlist-btn"><i class="fas fa-heart"></i></a>
+                        <a href="#" class="product-icon-btn add-to-cart-btn"><i class="fas fa-shopping-cart"></i></a>
+                        <a href="#" class="product-icon-btn quick-view-btn"><i class="fas fa-eye"></i></a>
+                    </div>
+                    <span class="product-tag new-tag">Tamanho G</span>
+                </div>
+                <div class="product-info">
+                    <h3>Camisa Over TEXTURIZADA OFF-WHITE</h3>
+                    <p class="price">R$69,90</p>
+                </div>
+            </div>
+
+            <!-- Produto 5 -->
+            <div class="product" data-category="bestseller" data-scroll-reveal data-name="Camisa Over TORONTO PRETA" data-price="64.90" data-tag="Tamanho M">
+                <div class="product-img">
+                    <img src="imagens/toronto.png" alt="toronto">
+                    <div class="product-icons">
+                        <a href="#" class="product-icon-btn wishlist-btn"><i class="fas fa-heart"></i></a>
+                        <a href="#" class="product-icon-btn add-to-cart-btn"><i class="fas fa-shopping-cart"></i></a>
+                        <a href="#" class="product-icon-btn quick-view-btn"><i class="fas fa-eye"></i></a>
+                    </div>
+                    <span class="product-tag sale-tag">Tamanho M</span>
+                </div>
+                <div class="product-info">
+                    <h3>Camisa Over TORONTO PRETA</h3>
+                    <p class="price">R$64,90</p>
+                </div>
+            </div>
+
+            <!-- Produto 6 -->
+            <div class="product" data-category="sale" data-scroll-reveal data-name="Camisa 100% JESUS NEY BRANCA" data-price="54.90" data-tag="Tamanho G">
+                <div class="product-img">
+                    <img src="imagens/NEYMAR.png" alt="Blue Hoodie">
+                    <div class="product-icons">
+                        <a href="#" class="product-icon-btn wishlist-btn"><i class="fas fa-heart"></i></a>
+                        <a href="#" class="product-icon-btn add-to-cart-btn"><i class="fas fa-shopping-cart"></i></a>
+                        <a href="#" class="product-icon-btn quick-view-btn"><i class="fas fa-eye"></i></a>
+                    </div>
+                    <span class="product-tag">Tamanho G</span>
+                </div>
+                <div class="product-info">
+                    <h3>Camisa 100% JESUS NEY BRANCA</h3>
+                    <p class="price">R$54,90</p>
+                </div>
+            </div>  
+
+        </div>
+
+        <div class="load-more" data-scroll-reveal>
+            <button class="btn">Mais</button>
         </div>
     </section>
 
-    <section class="banner">
+    <section class="banner" data-scroll-reveal>
         <div class="banner-content">
-            <h2>PROMOS!</h2>
-            <p>Acompanhe nossos storys </p>
-            <a href="#" class="btn">ACEITAMOS PIX, CARTÃO DE CREDITO E DEBITO!</a>
+            <h2>FIQUE LIGADO!</h2>
+            <p>Fique ligado no nosso insta: @nav.streets pra poder ver nossas promos!</p>
+            <a href="#" class="btn">ACEITAMOS CARTÂO DE CREDITO, DÈBITO E PIX! </a>
+            <h6>*VERSÂO 1.1 DO SITE E ESTÀ SUJEITO A ERROS, QUALQUER DUVIDA ENTRE EM CONTATO CONOSCO!<br>Obrigado pela preferência!</h6>
         </div>
     </section>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <script src="script.js"></script>
 </body>
