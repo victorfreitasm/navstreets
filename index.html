@@ -7,8 +7,34 @@
     <link rel="icon" href="imagens/et.png" type="image/png">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- MODAL DE VISUALIZAÇÃO -->
+<div id="productModal" class="modal">
+    <div class="modal-content">
+
+        <span class="close-modal">&times;</span>
+
+        <div class="modal-left">
+            <div class="modal-main-img-container">
+                <img id="modalMainImg" class="modal-main-img" src="">
+                <div class="modal-zoom-lens"></div>
+            </div>
+
+            <div class="modal-thumbs" id="modalThumbs">
+                <!-- Thumbs serão adicionadas via JS -->
+            </div>
+        </div>
+
+        <div class="modal-right">
+            <h2 id="modalProductName"></h2>
+            <p id="modalProductPrice"></p>
+            <p id="modalProductTag"></p>
+
+            <button class="modal-buy-btn">Adicionar ao carrinho</button>
+        </div>
+    </div>
+</div>
+
 </head>
-<body>
     <header>
         <!-- Modal PIX + WhatsApp -->
         <div id="checkoutModal" class="modal">
@@ -33,36 +59,43 @@
                 </div>
             </div>
         </div>
+<!-- Modal de Visualização de Produto -->
+<div id="productViewModal" class="modal">
 
-        <!-- Modal de Visualização de Produto -->
-        <div id="productViewModal" class="modal">
-            <div class="modal-content product-view-modal-content">
-                <span id="closeProductView" class="close">&times;</span>
-                <div class="product-view-container">
-                    <div class="product-view-image">
-                        <img id="viewProductImg" src="" alt="Produto">
-                        <span id="viewProductTag" class="product-tag"></span>
-                    </div>
-                    <div class="product-view-details">
-                        <h2 id="viewProductName"></h2>
-                        <p id="viewProductPrice" class="price"></p>
-                        <p class="product-description">
-                            Produto de alta qualidade com design streetwear urbano. 
-                            Perfeito para compor seu visual casual e moderno. 
-                            Material confortável e durável.
-                        </p>
-                        <div class="product-view-actions">
-                            <button class="btn" id="addToCartFromView">
-                                <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
-                            </button>
-                            <button class="btn" id="toggleFavoriteFromView">
-                                <i class="fas fa-heart"></i> Favoritar
-                            </button>
-                        </div>
-                    </div>
+    <!-- SETA DE VOLTAR (funcionando e visível) -->
+    <button id="backToProducts" class="modal-back-btn-fixed">
+        <i class="fas fa-arrow-left"></i>
+    </button>
+
+    <div class="modal-content product-view-modal-content">
+
+        <!-- Botão X de fechar -->
+        <span id="closeProductView" class="close">&times;</span>
+
+
+            <div class="product-view-details">
+                <h2 id="viewProductName"></h2>
+                <p id="viewProductPrice" class="price"></p>
+
+
+                <div class="product-view-actions">
+                    <button class="btn" id="addToCartFromView">
+                        <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
+                    </button>
+                    <button class="btn" id="toggleFavoriteFromView">
+                        <i class="fas fa-heart"></i> Favoritar
+
+                        <div class="modal-thumbs">
+                            <img class="modal-thumb" id="thumbFront" src="" alt="Frente">
+                            <img class="modal-thumb" id="thumbBack" src="" alt="Costas">
+</div>
+
+                    </button>
                 </div>
             </div>
         </div>
+    </div>
+</div>
 
         <nav class="navbar" id="navbar">
             <div class="logo">
@@ -205,109 +238,179 @@
         </div>
         <div class="product-container">
 
-            <!-- Produto 1 -->
-            <div class="product" data-category="new" data-scroll-reveal data-name="Camisa Street SIDECROSS PRETA" data-price="64.90" data-tag="Tamanho M">
-                <div class="product-img">
-                    <img src="imagens/sidecross.png" alt="sidecross">
-                    <div class="product-icons">
-                        <a href="#" class="product-icon-btn wishlist-btn"><i class="fas fa-heart"></i></a>
-                        <a href="#" class="product-icon-btn add-to-cart-btn"><i class="fas fa-shopping-cart"></i></a>
-                        <a href="#" class="product-icon-btn quick-view-btn"><i class="fas fa-eye"></i></a>
-                    </div>
-                    <span class="product-tag new-tag">Tamanho M</span>
-                </div>
-                <div class="product-info">
-                    <h3>Camisa Street SIDECROSS PRETA</h3>
-                    <p class="price">R$64,90</p>
-                </div>
-            </div>
+<!-- Produto 1 -->
+<div class="product" 
+     data-category="new" 
+     data-scroll-reveal 
+     data-name="Camisa Streetwear NGM" 
+     data-price="64.90" 
+     data-tag="Tamanho M"
 
-            <!-- Produto 2 -->
-            <div class="product" data-category="bestseller" data-scroll-reveal data-name="Camisa Over ANTIDOTE OFF WHITE" data-price="64.90" data-tag="Tamanho G">
-                <div class="product-img">
-                    <img src="imagens/travis.png" alt="antidote">
-                    <div class="product-icons">
-                        <a href="#" class="product-icon-btn wishlist-btn"><i class="fas fa-heart"></i></a>
-                        <a href="#" class="product-icon-btn add-to-cart-btn"><i class="fas fa-shopping-cart"></i></a>
-                        <a href="#" class="product-icon-btn quick-view-btn"><i class="fas fa-eye"></i></a>
-                    </div>
-                    <span class="product-tag sale-tag">Tamanho G</span>
-                </div>
-                <div class="product-info">
-                    <h3>Camisa Over ANTIDOTE OFF WHITE</h3>
-                    <p class="price">R$64,90</p>
-                </div>
-            </div>
+     data-front="imagens/CAMISA SURFSTATION/1.png"
+     data-back="imagens/CAMISA SURFSTATION/2.png"
+>
+    <div class="product-img">
+        <img src="imagens/CAMISA BGM/1.png" alt="produto">
 
-            <!-- Produto 3 -->
-            <div class="product" data-category="sale" data-scroll-reveal data-name="Camisa Street STARSHINE BEGE" data-price="64.90" data-tag="Tamanho G">
-                <div class="product-img">
-                    <img src="imagens/starshine.png" alt="starshine">
-                    <div class="product-icons">
-                        <a href="#" class="product-icon-btn wishlist-btn"><i class="fas fa-heart"></i></a>
-                        <a href="#" class="product-icon-btn add-to-cart-btn"><i class="fas fa-shopping-cart"></i></a>
-                        <a href="#" class="product-icon-btn quick-view-btn"><i class="fas fa-eye"></i></a>
-                    </div>
-                    <span class="product-tag">Tamanho G</span>
-                </div>
-                <div class="product-info">
-                    <h3>Camisa Street STARSHINE BEGE</h3>
-                    <p class="price">R$64,90</p>
-                </div>
-            </div>
-
-            <!-- Produto 4 -->
-            <div class="product" data-category="new" data-scroll-reveal data-name="Camisa Over TEXTURIZADA OFF-WHITE" data-price="69.90" data-tag="Tamanho G">
-                <div class="product-img">
-                    <img src="imagens/texturizada.png" alt="texturizada">
-                    <div class="product-icons">
-                        <a href="#" class="product-icon-btn wishlist-btn"><i class="fas fa-heart"></i></a>
-                        <a href="#" class="product-icon-btn add-to-cart-btn"><i class="fas fa-shopping-cart"></i></a>
-                        <a href="#" class="product-icon-btn quick-view-btn"><i class="fas fa-eye"></i></a>
-                    </div>
-                    <span class="product-tag new-tag">Tamanho G</span>
-                </div>
-                <div class="product-info">
-                    <h3>Camisa Over TEXTURIZADA OFF-WHITE</h3>
-                    <p class="price">R$69,90</p>
-                </div>
-            </div>
-
-            <!-- Produto 5 -->
-            <div class="product" data-category="bestseller" data-scroll-reveal data-name="Camisa Over TORONTO PRETA" data-price="64.90" data-tag="Tamanho M">
-                <div class="product-img">
-                    <img src="imagens/toronto.png" alt="toronto">
-                    <div class="product-icons">
-                        <a href="#" class="product-icon-btn wishlist-btn"><i class="fas fa-heart"></i></a>
-                        <a href="#" class="product-icon-btn add-to-cart-btn"><i class="fas fa-shopping-cart"></i></a>
-                        <a href="#" class="product-icon-btn quick-view-btn"><i class="fas fa-eye"></i></a>
-                    </div>
-                    <span class="product-tag sale-tag">Tamanho M</span>
-                </div>
-                <div class="product-info">
-                    <h3>Camisa Over TORONTO PRETA</h3>
-                    <p class="price">R$64,90</p>
-                </div>
-            </div>
-
-            <!-- Produto 6 -->
-            <div class="product" data-category="sale" data-scroll-reveal data-name="Camisa 100% JESUS NEY BRANCA" data-price="54.90" data-tag="Tamanho G">
-                <div class="product-img">
-                    <img src="imagens/NEYMAR.png" alt="Blue Hoodie">
-                    <div class="product-icons">
-                        <a href="#" class="product-icon-btn wishlist-btn"><i class="fas fa-heart"></i></a>
-                        <a href="#" class="product-icon-btn add-to-cart-btn"><i class="fas fa-shopping-cart"></i></a>
-                        <a href="#" class="product-icon-btn quick-view-btn"><i class="fas fa-eye"></i></a>
-                    </div>
-                    <span class="product-tag">Tamanho G</span>
-                </div>
-                <div class="product-info">
-                    <h3>Camisa 100% JESUS NEY BRANCA</h3>
-                    <p class="price">R$54,90</p>
-                </div>
-            </div>  
-
+        <div class="product-icons">
+            <a href="#" class="product-icon-btn wishlist-btn"><i class="fas fa-heart"></i></a>
+            <a href="#" class="product-icon-btn add-to-cart-btn"><i class="fas fa-shopping-cart"></i></a>
+            <a href="#" class="product-icon-btn quick-view-btn"><i class="fas fa-eye"></i></a>
         </div>
+
+        <span class="product-tag new-tag">Tamanho M</span>
+    </div>
+
+    <div class="product-info">
+        <h3>Camisa Streetwear NGM <br>Cor: Preta</h3>
+        <p class="price">R$64,90</p>
+    </div>
+</div>
+
+<!-- Produto 2 -->
+<div class="product" 
+     data-category="new" 
+     data-scroll-reveal 
+     data-name="Camisa Streetwear SurfStation" 
+     data-price="64.90" 
+     data-tag="Tamanho M"
+
+     data-front="imagens/CAMISA SURFSTATION/1.png"
+     data-back="imagens/CAMISA SURFSTATION/2.png"
+>
+    <div class="product-img">
+        <img src="imagens/CAMISA SURFSTATION/1.png" alt="produto">
+
+        <div class="product-icons">
+            <a href="#" class="product-icon-btn wishlist-btn"><i class="fas fa-heart"></i></a>
+            <a href="#" class="product-icon-btn add-to-cart-btn"><i class="fas fa-shopping-cart"></i></a>
+            <a href="#" class="product-icon-btn quick-view-btn"><i class="fas fa-eye"></i></a>
+        </div>
+
+        <span class="product-tag new-tag">Tamanho M</span>
+    </div>
+
+    <div class="product-info">
+        <h3>Camisa Streetwear SurfStation <br>Cor: Off-White</h3>
+        <p class="price">R$64,90</p>
+    </div>
+</div>
+
+<!-- Produto 3 -->
+<div class="product" 
+     data-category="new" 
+     data-scroll-reveal 
+     data-name="Camisa Streetwear Stussy" 
+     data-price="64.90" 
+     data-tag="Tamanho M"
+
+     data-front="imagens/CAMISA STUSSY/1.png"
+     data-back="imagens/CAMISA STUSSY/2.png"
+>
+    <div class="product-img">
+        <img src="imagens/CAMISA STUSSY/1.png" alt="produto">
+
+        <div class="product-icons">
+            <a href="#" class="product-icon-btn wishlist-btn"><i class="fas fa-heart"></i></a>
+            <a href="#" class="product-icon-btn add-to-cart-btn"><i class="fas fa-shopping-cart"></i></a>
+            <a href="#" class="product-icon-btn quick-view-btn"><i class="fas fa-eye"></i></a>
+        </div>
+
+        <span class="product-tag new-tag">Tamanho M</span>
+    </div>
+
+    <div class="product-info">
+        <h3>Camisa Streetwear Stüssy <br>Cor: Preta</h3>
+        <p class="price">R$64,90</p>
+    </div>
+</div>
+
+<!-- Produto 4 -->
+<div class="product" 
+     data-category="new" 
+     data-scroll-reveal 
+     data-name="Camisa Streetwear Nike Moving C.O" 
+     data-price="64.90" 
+     data-tag="Tamanho G"
+
+     data-front="imagens/CAMISA NIKE MOVING CO/1.png"
+     data-back="imagens/CAMISA NIKE MOVING CO/2.png"
+>
+    <div class="product-img">
+        <img src="imagens/CAMISA NIKE MOVING CO/1.png" alt="produto">
+
+        <div class="product-icons">
+            <a href="#" class="product-icon-btn wishlist-btn"><i class="fas fa-heart"></i></a>
+            <a href="#" class="product-icon-btn add-to-cart-btn"><i class="fas fa-shopping-cart"></i></a>
+            <a href="#" class="product-icon-btn quick-view-btn"><i class="fas fa-eye"></i></a>
+        </div>
+
+        <span class="product-tag new-tag">Tamanho G</span>
+    </div>
+
+    <div class="product-info">
+        <h3>Camisa Streetwear Nike Moving C.O <br> Cor: Off-White</h3>
+        <p class="price">R$64,90</p>
+    </div>
+</div>
+
+<!-- Produto 5 -->
+<div class="product" 
+     data-category="new" 
+     data-scroll-reveal 
+     data-name="Camisa Streetwear Nike NOCTA" 
+     data-price="64.90" 
+     data-tag="Tamanho M"
+
+     data-front="imagens/CAMISA NIKE NOCTA/1.png"
+     data-back="imagens/CAMISA NIKE NOCTA/2.png"
+>
+    <div class="product-img">
+        <img src="imagens/CAMISA NIKE NOCTA/1.png" alt="produto">
+
+        <div class="product-icons">
+            <a href="#" class="product-icon-btn wishlist-btn"><i class="fas fa-heart"></i></a>
+            <a href="#" class="product-icon-btn add-to-cart-btn"><i class="fas fa-shopping-cart"></i></a>
+            <a href="#" class="product-icon-btn quick-view-btn"><i class="fas fa-eye"></i></a>
+        </div>
+
+        <span class="product-tag new-tag">Tamanho G</span>
+    </div>
+
+    <div class="product-info">
+        <h3>Camisa Streetwear Nike NOCTA <br>Cor: Branco</h3>
+        <p class="price">R$64,90</p>
+    </div>
+</div>
+
+<!-- Produto 6 -->
+<div class="product" 
+     data-category="new" 
+     data-scroll-reveal 
+     data-name="Camisa Streetwear Racionais" 
+     data-price="64.90" 
+     data-tag="Tamanho M"
+
+     data-front="imagens/CAMISA RACIONAIS/1.png"
+     data-back="imagens/CAMISA RACIONAIS/2.png"
+>
+    <div class="product-img">
+        <img src="imagens/CAMISA RACIONAIS/1.png" alt="produto">
+
+        <div class="product-icons">
+            <a href="#" class="product-icon-btn wishlist-btn"><i class="fas fa-heart"></i></a>
+            <a href="#" class="product-icon-btn add-to-cart-btn"><i class="fas fa-shopping-cart"></i></a>
+            <a href="#" class="product-icon-btn quick-view-btn"><i class="fas fa-eye"></i></a>
+        </div>
+
+        <span class="product-tag new-tag">Tamanho G</span>
+    </div>
+
+    <div class="product-info">
+        <h3>Camisa Streetwear Racionais <br> Cor: Preto</h3>
+        <p class="price">R$64,90</p>
+    </div>
+</div>
 
         <div class="load-more" data-scroll-reveal>
             <button class="btn">Mais</button>

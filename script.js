@@ -679,3 +679,142 @@ updateFavoritesUI();
 updateFavoriteButtons();
 updateCart();
 updateCartPreview();
+
+// MINIATURAS
+document.querySelectorAll(".thumb").forEach(thumb => {
+    thumb.addEventListener("click", () => {
+        const gallery = thumb.closest(".gallery");
+        gallery.querySelector(".main-image").src = thumb.dataset.full;
+
+        gallery.querySelectorAll(".thumb").forEach(t => t.classList.remove("active"));
+        thumb.classList.add("active");
+    });
+});
+
+// LUPA / ZOOM
+document.querySelectorAll(".main-image-container").forEach(container => {
+    const img = container.querySelector(".main-image");
+    const lens = container.querySelector(".zoom-lens");
+
+    container.addEventListener("mousemove", e => {
+        lens.style.visibility = "visible";
+
+        const rect = container.getBoundingClientRect();
+        const x = e.clientX - rect.left - lens.offsetWidth / 2;
+        const y = e.clientY - rect.top - lens.offsetHeight / 2;
+
+        lens.style.left = `${x}px`;
+        lens.style.top = `${y}px`;
+
+        img.style.transform = "scale(1.4)";
+    });
+
+    container.addEventListener("mouseleave", () => {
+        lens.style.visibility = "hidden";
+        img.style.transform = "scale(1)";
+    });
+});
+
+// ---------------------------
+// ABRIR MODAL AO CLICAR NO PRODUTO
+// ---------------------------
+document.querySelectorAll(".product").forEach(prod => {
+    prod.addEventListener("click", () => {
+
+        const name = prod.querySelector("h3").innerText;
+        const price = prod.querySelector(".price").innerText;
+        const tag = prod.querySelector(".product-tag")?.innerText || "";
+        
+const images = [
+    prod.dataset.front,  // imagem da frente
+    prod.dataset.back    // imagem das costas
+];
+
+        // coloca dados no modal
+        document.getElementById("modalProductName").innerText = name;
+        document.getElementById("modalProductPrice").innerText = price;
+        document.getElementById("modalProductTag").innerText = tag;
+
+        // imagem principal
+        const mainImg = document.getElementById("modalMainImg");
+        mainImg.src = images[0];
+
+        // miniaturas
+        const thumbsContainer = document.getElementById("modalThumbs");
+        thumbsContainer.innerHTML = "";
+
+        images.forEach((img, index) => {
+            const thumb = document.createElement("img");
+            thumb.src = img;
+            thumb.classList.add("thumb");
+            if (index === 0) thumb.classList.add("active");
+            thumb.addEventListener("click", () => {
+                mainImg.src = img;
+                document.querySelectorAll(".modal-thumbs img").forEach(t => t.classList.remove("active"));
+                thumb.classList.add("active");
+            });
+            thumbsContainer.appendChild(thumb);
+        });
+
+        document.getElementById("productModal").style.display = "flex";
+    });
+});
+
+// ---------------------------
+// FECHAR MODAL
+// ---------------------------
+document.querySelector(".close-modal").addEventListener("click", () => {
+    document.getElementById("productModal").style.display = "none";
+});
+
+// ---------------------------
+// ZOOM NO MODAL
+// ---------------------------
+const modalContainer = document.querySelector(".modal-main-img-container");
+const modalImg = document.getElementById("modalMainImg");
+const modalLens = document.querySelector(".modal-zoom-lens");
+
+modalContainer.addEventListener("mousemove", e => {
+    modalLens.style.visibility = "visible";
+
+    const rect = modalContainer.getBoundingClientRect();
+    let x = e.clientX - rect.left - modalLens.offsetWidth / 2;
+    let y = e.clientY - rect.top - modalLens.offsetHeight / 2;
+
+    modalLens.style.left = `${x}px`;
+    modalLens.style.top = `${y}px`;
+
+    modalImg.style.transform = "scale(1.5)";
+});
+
+modalContainer.addEventListener("mouseleave", () => {
+    modalLens.style.visibility = "hidden";
+    modalImg.style.transform = "scale(1)";
+});
+
+document.addEventListener("click", (e) => {
+    if (e.target.closest(".modal-back-btn")) {
+        document.getElementById("productViewModal").style.display = "none";
+    }
+});
+
+document.getElementById("backToProducts").addEventListener("click", () => {
+    document.getElementById("productViewModal").style.display = "none";
+});
+
+modalContainer.addEventListener("mousemove", e => {
+    modalLens.style.visibility = "visible";
+
+    const rect = modalContainer.getBoundingClientRect();
+    let x = e.clientX - rect.left - modalLens.offsetWidth / 2;
+    let y = e.clientY - rect.top - modalLens.offsetHeight / 2;
+
+    modalLens.style.left = `${x}px`;
+    modalLens.style.top = `${y}px`;
+
+    const xPercent = (x + modalLens.offsetWidth/2) / rect.width * 100;
+    const yPercent = (y + modalLens.offsetHeight/2) / rect.height * 100;
+    modalImg.style.transformOrigin = `${xPercent}% ${yPercent}%`;
+
+    modalImg.style.transform = "scale(1.5)";
+});

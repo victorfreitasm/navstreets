@@ -569,11 +569,11 @@
 }
 
 .product-tag.new-tag {
-    background: linear-gradient(135deg, #ff6b6b, #ff8787);
+    background: linear-gradient(135deg, #52077e, #7c02d9);
 }
 
 .product-tag.sale-tag {
-    background: linear-gradient(135deg, #51cf66, #69db7c);
+    background: linear-gradient(135deg, #52077e, #7c02d9);
 }
 
 .product-info {
@@ -1635,4 +1635,189 @@ header {
 
 .clear-favorites-btn:hover {
     box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+}
+
+/* --- GALERIA DE PRODUTO --- */
+.gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+}
+
+.main-image-container {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.main-image {
+    width: 100%;
+    border-radius: 10px;
+    transition: transform 0.2s ease;
+    cursor: zoom-in;
+}
+
+.zoom-lens {
+    position: absolute;
+    border: 2px solid #fff;
+    width: 120px;
+    height: 120px;
+    visibility: hidden;
+    pointer-events: none;
+    border-radius: 50%;
+    backdrop-filter: brightness(1.2);
+}
+
+.thumbs {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+
+.thumb {
+    width: 60px;
+    height: 75px;
+    object-fit: cover;
+    border-radius: 6px;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: 0.2s;
+}
+
+.thumb.active,
+.thumb:hover {
+    opacity: 1;
+    border: 2px solid #fff;
+}
+
+/* ---------------- MODAL ---------------- */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+}
+
+.modal-content {
+    background: #ffffff;
+    padding: 20px;
+    width: 90%;
+    max-width: 900px;
+    display: flex;
+    gap: 20px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    color: rgb(81, 5, 91);
+}
+
+.modal-left { width: 60%; }
+.modal-right { width: 40%; }
+
+.modal-main-img-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.modal-main-img {
+    width: 100%;
+    border-radius: 10px;
+    cursor: zoom-in;
+    transition: 0.2s;
+}
+
+.modal-thumbs {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.modal-thumbs img {
+    width: 80px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    opacity: .7;
+    transition: .2s;
+}
+
+.modal-thumbs img.active { opacity: 1; border: 2px solid #fff; }
+
+.modal-zoom-lens {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 2px solid rgb(0, 0, 0);
+    pointer-events: none;
+    visibility: hidden;
+}
+
+/* Botão */
+.modal-buy-btn {
+    width: 100%;
+    padding: 15px;
+    background: #a600ff;
+    border: none;
+    font-weight: bold;
+    border-radius: 10px;
+    margin-top: 30px;
+    cursor: pointer;
+}
+
+.modal-back-btn-fixed {
+    position: fixed !important;
+    top: 20px !important;
+    left: 20px !important;
+    width: 55px;
+    height: 55px;
+    background: rgba(0,0,0,0.85);
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    z-index: 999999999999999999999 !important;
+    border: none;
+    cursor: pointer;
+}
+
+.modal-back-btn-fixed i {
+    color: white !important;
+    font-size: 22px !important;
+}
+
+.modal-thumbs {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.modal-thumb {
+    width: 80px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.modal-thumb:hover {
+    border-color: var(--primary-color);
 }
